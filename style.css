@@ -1,0 +1,94 @@
+/* style.css */
+body {
+  font-family: Arial, sans-serif;
+  background: #f4f4f4;
+  margin: 0;
+  padding: 0;
+}
+
+header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+  background: #eee;
+  border-bottom: 1px solid #ccc;
+  font-family: monospace;
+}
+
+header input[type="search"] {
+  flex-grow: 1;
+  max-width: 400px;
+  margin: 0 15px;
+  padding: 6px 10px;
+  font-size: 16px;
+  border-radius: 4px;
+  border: 1px solid #ccc;
+}
+
+header .buttons button {
+  margin-left: 10px;
+  padding: 6px 12px;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.container {
+  max-width: 900px;
+  margin: 40px auto;
+  display: flex;
+  gap: 40px;
+}
+
+.box {
+  background: #fff;
+  padding: 30px;
+  border: 1px solid #ddd;
+  border-radius: 6px;
+  box-shadow: 0 0 10px rgb(0 0 0 / 0.1);
+  flex: 1;
+}
+
+h2 {
+  color: #2a64d9;
+  margin-bottom: 20px;
+  text-align: center;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  padding: 10px;
+  margin-bottom: 15px;
+  border: 1px solid #aaa;
+  border-radius: 4px;
+  font-size: 16px;
+}
+
+button {
+  background-color: #2a64d9;
+  border: none;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  cursor: pointer;
+  border-radius: 4px;
+  margin-top: 10px;
+}
+
+button:hover {
+  background-color: #1e49b3;
+}
+
+.signup-link {
+  font-size: 14px;
+  color: #2a64d9;
+  cursor: pointer;
+  text-align: center;
+  margin-top: 10px;
+}
