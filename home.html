@@ -9,7 +9,58 @@
 <body>
   <h1>Welcome to DEV@Deakin!</h1>
   <p>You are logged in 🎉</p>
-  
+
   <button id="logoutBtn">Sign Out</button>
+
+  <!-- ✅ Newsletter Subscription Component -->
+  <form id="newsletterForm" style="text-align: center; margin: 40px 0;">
+    <strong style="font-family: monospace; font-size: 18px;">SIGN UP FOR OUR DAILY INSIDER</strong>
+    <input 
+      type="email" 
+      id="subscriberEmail" 
+      placeholder="Enter your email" 
+      required 
+      style="margin-left: 10px; padding: 5px; width: 250px;"
+    >
+    <button 
+      type="submit" 
+      style="background-color: lightgray; border: none; padding: 5px 10px; margin-left: 5px;"
+    >
+      Subscribe
+    </button>
+    <p id="subscriptionMessage" style="color: green; margin-top: 10px;"></p>
+  </form>
+
+  <!-- ✅ Newsletter Script -->
+  <script>
+    document.getElementById('newsletterForm').addEventListener('submit', async function(e) {
+      e.preventDefault();
+
+      const email = document.getElementById('subscriberEmail').value;
+      const messageBox = document.getElementById('subscriptionMessage');
+
+      try {
+        const response = await fetch('http://localhost:3000/api/subscribe', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ email })
+        });
+
+        if (response.ok) {
+          messageBox.textContent = "🎉 Welcome email sent!";
+          messageBox.style.color = "green";
+          document.getElementById('subscriberEmail').value = '';
+        } else {
+          const err = await response.json();
+          messageBox.textContent = err.message || "Subscription failed.";
+          messageBox.style.color = "red";
+        }
+      } catch (error) {
+        messageBox.textContent = "Error connecting to server.";
+        messageBox.style.color = "red";
+      }
+    });
+  </script>
 </body>
 </html>
+
